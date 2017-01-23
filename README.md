@@ -2,8 +2,15 @@
 Restarts Torque and Maui services if the scheduler is stalled/locked.
 
 ## How to use?
-Just run the qsub sanity test script:
-./qsub_sanitytest.sh
+There are two simple scripts and both can be added to a cronjob for routine checks.
 
-## What does it do?
-The script submits a 1 proc and 1 node job to determine if the scheduler is functioning. If a job is queued for a long time because of high load (eg. 100.00%) it will recognize it and stop running.
+### qsub_sanitytest.sh
+This will check to see if the job scheduler has stalled but continues to accept job queues.
+
+### pbs_server-scheduler_check.sh
+This will check to see if the pbs server or scheduler are still running in the background.
+
+To test either script just them on command line:
+./qsub_sanitytest.sh
+./pbs_server-scheduler_check.sh
+
